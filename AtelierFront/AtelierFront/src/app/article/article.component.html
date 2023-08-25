@@ -1,0 +1,5 @@
+<div class="container mt-5">
+  <app-form (nouvelArticleAjoute)="ajouterNouvelArticle($event)"[MesCategories]="MesCategories" (eventEmetteur)="chercherFournisseur($event)"[toEdit]="toEdit" [Mesfournisseurs]="Mesfournisseurs"></app-form>
+  <app-liste [Articles]="Articles" (idToDelete)="deleteArticle($event)" (ArticleToUpdate)="idToModify($event)"></app-liste>
+  <app-pagination></app-pagination>
+</div>

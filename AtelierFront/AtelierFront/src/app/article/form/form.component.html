@@ -1,0 +1,74 @@
+    <div class="card mt-3  w-75">
+      <div class="card-header">Ajouter un Article</div>
+      <div class="card-body">
+        <form  [formGroup]="form" >
+  <div class="d-flex" >
+    <div class="flex-fill">
+      <div class="col-md-7">
+        <label for="validationDefault01" class="form-label">Libelle</label>
+        <input type="text" class="form-control"   id="libelle" name="libelle" required formControlName="libelle" (input)="goToNextStep()">
+        <div *ngIf="isLibelleValid()" class="text-danger">ce champ ne doit pas être vide</div>
+      </div>
+      <div class="col-md-7">
+        <label for="validationDefault01" class="form-label">Prix</label>
+        <input type="number" class="form-control" id="validationDefault01" required id="prix" name="prix" required formControlName="prix">
+        <div *ngIf="form.controls['prix'].invalid && form.controls['prix'].touched" class="text-danger">entrez un nombre positif</div>
+      </div>
+      <div class="col-md-7">
+        <label for="validationDefault01" class="form-label">Stock</label>
+        <input type="number" class="form-control"   id="prix" name="stock" required formControlName="stock">
+        <div *ngIf="form.controls['stock'].invalid && form.controls['stock'].touched" class="text-danger">veuillez saisir un nombre positif</div>
+      </div>
+      <div class="col-md-7">
+        <label for="validationDefault04" class="form-label">categorie</label>
+        <select class="form-select" #selectCategory id="categorie" name="categorie" required formControlName="categorie"  (change)="goToNextStep()">
+          <option  *ngFor="let Moncategorie of MesCategories" value="{{Moncategorie.id}}">{{Moncategorie.libelle}}</option>
+          <!-- <option *ngFor="let categorie of categories" value="categorie.id">{{categorie.libelle}}</option> -->
+        </select>
+        <div *ngIf="form.controls['categorie'].invalid && form.controls['categorie'].touched" class="text-danger">Champ requis</div>
+      </div>
+      <div class="col-md-7">
+        <label for="validationDefault01" class="form-label">Fournisseur</label>
+        <input type="text"  class="form-control"  id="fournisseur" name="fournisseur" (input)="recupValue($event)" required formControlName="fournisseur" #inputFournisseur>
+        <div *ngIf="form.controls['fournisseur'].invalid && form.controls['fournisseur'].touched" class="text-danger">Champ requis</div>
+        <div value="fournisseur.id" class="fournisseur-list list-group">
+          <div *ngFor="let item of Mesfournisseurs" class="fournisseur-item list-group-item list-group-item-secondary"  (click)="selectFournisseur(item)">{{item.name}}</div>
+        </div>
+        <div class="d-flex align-items">
+          <div *ngFor="let item of FournisseursSelectiones" class="fournisseur-item btn btn-success m-1 d-flex align-items-center w-75 h-25" value="item.id">{{item.name}}
+            <button class="btn btn-sm btn-danger ms-2"  (click)="removeSelectedFournisseur(item)">
+              <i class="fa-thin fa-xmark" ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="flex-fill">
+      <div class="mb-3">
+        <label for="photo" class="form-label">Photo</label>
+        <div class="position-relative">
+            <input type="file" class="form-control position-absolute opacity formatImage" formControlName="photo"  id="photo" name="photo"
+            accept="image/*" (change)="onPhotoChange($event)" required>
+            <img [src]="imageUrl" alt="" class="formatImage">
+        </div>
+      </div>
+      <div class="col-md-7">
+        <label for="validationDefault01" class="form-label">Reference</label>
+        <input type="text"  class="form-control"  id="fournisseur" name="fournisseur" required formControlName="reference">
+        <div value="fournisseur.id"></div>
+      </div>
+
+    </div>
+  </div>
+
+
+          <div>
+            <button type="submit" class="btn btn-success m-2" (click)=" ajouterArticle()" [disabled]="isEnregistrerButtonDisabled()" disabled="modeModifier()"  #myButton>Enregistrer</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
