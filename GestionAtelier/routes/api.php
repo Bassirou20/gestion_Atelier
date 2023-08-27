@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\ArticleventeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\artiFournisController;
 use App\Http\Controllers\FournisseurController;
+use App\Models\Articlevente;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +33,5 @@ Route::apiResource('/articleFournisseur',artiFournisController::class);
 Route::apiResource('/categories',CategorieController::class);
 Route::apiResource('/fournisseurs',FournisseurController::class);
 Route::apiResource('articles',ArticleController::class)->only('index','destroy','store');
+Route::apiResource('articleVente',ArticleventeController::class)->only('index','store','update');
 

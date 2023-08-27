@@ -17,6 +17,13 @@ class Article extends Model
         return $this->belongsTo(Categorie::class);
     }
 
+    public function articlevente()
+    {
+        return $this->belongsToMany(Articlevente::class, 'article_articleventes')
+        ->withTimestamps();
+    }
+
+
 
     public function fournisseurs()
     {

@@ -1,0 +1,88 @@
+<div class="container mt-5">
+  <div class="card mb-4">
+    <div class="card-header" style="background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);color: red; text-shadow: 2px 2px 8px blue" >
+      <h2 class="card-title">Articles de Vente</h2>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="position-relative mb-3">
+          <label for="photo" class="form-label"></label>
+          <div
+            class="rounded-circle bg-secondary d-flex align-items-center justify-content-center"
+            id="photoPreview"
+            style="width: 150px; height: 150px"
+          >
+            <span class="text-white">Aperçu<br />Image</span>
+            <input
+              type="file"
+              class="form-control position-absolute"
+              style="top: 0; left: 0; opacity: 0; width: 100%; height: 100%"
+              id="photo"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="libelle" class="form-label">Libellé</label>
+            <input type="text" class="form-control" id="libelle" required />
+          </div>
+          <div
+            class="col"
+            style="margin-left: -11em; width: 40%; margin-top: -0.1em"
+          >
+            <!-- Ajustez la marge et la largeur selon vos besoins -->
+            <label for="categorie" class="form-label">Catégorie</label>
+            <select
+              class="form-select"
+              id="categorie"
+              required
+              style="width: 15em"
+            >
+              <option value="" selected disabled>
+                Sélectionner une catégorie
+              </option>
+              <option value="categorie1">Catégorie 1</option>
+              <option value="categorie2">Catégorie 2</option>
+              <option value="categorie3">Catégorie 3</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-check mb-3">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="promoCheckbox"
+          />
+          <label class="form-check-label" for="promoCheckbox">
+            Activer la Promo
+          </label>
+        </div>
+        <div class="mb-3" id="valeurContainer" style="display: none">
+          <label for="valeur" class="form-label"
+            >Valeur en Pourcentage</label
+          >
+          <input type="number" class="form-control" id="valeur" />
+        </div>
+   <div class="row mb-3">
+<div>
+  <div style="margin-left:35em">
+    <label for="reference" class="form-label">Référence</label>
+    <div>
+<input type="text" class="form-control" id="reference" readonly>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row mb-3">
+<div class="col-md-12 mt-3">
+  <button type="button" class="btn btn-primary float-end">
+    Sauvegarder
+  </button>
+</div>
+</div>
+      </form>
+    </div>
+  </div>

@@ -14,6 +14,9 @@ import { ArticleComponent } from './article/article.component';
 import { FormComponent } from './article/form/form.component';
 import { ListeComponent } from './article/liste/liste.component';
 import { PaginationComponent } from './article/pagination/pagination.component';
+import { ArticleVenteComponent } from './article-vente/article-vente.component';
+import { ArticleConfessionComponent } from './article-vente/article-confession/article-confession.component';
+import { CalculBeneficeComponent } from './article-vente/calcul-benefice/calcul-benefice.component';
 
 
 @NgModule({
@@ -26,6 +29,9 @@ import { PaginationComponent } from './article/pagination/pagination.component';
     FormComponent,
     ListeComponent,
     PaginationComponent,
+    ArticleVenteComponent,
+    ArticleConfessionComponent,
+    CalculBeneficeComponent,
 
   ],
   imports: [
